@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.TextView
 
 class CustomViewFine @JvmOverloads constructor(
     context: Context,
@@ -13,12 +14,17 @@ class CustomViewFine @JvmOverloads constructor(
     defAttrStyle: Int = 0,
 ) : LinearLayout(context, attrs, defAttrStyle) {
     init {
-        LayoutInflater.from(context).inflate(R.layout.view_custom_layout, this, true)
+        LayoutInflater.from(context).inflate(R.layout.view_easy, this, true)
     }
 
-    var onButtonClickListener: View.OnClickListener? = null
+    var text: String? = null
         set(value) {
             field = value
+            findViewById<TextView>(R.id.text).text = text
+        }
+
+    var buttonClickListener: View.OnClickListener? = null
+        set(value) {
             findViewById<Button>(R.id.button).setOnClickListener(value)
         }
 }
