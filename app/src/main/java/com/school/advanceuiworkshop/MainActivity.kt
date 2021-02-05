@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<CustomViewFine>(R.id.first).apply {
-            text = "MY EASY VIEW SETTING"
+            // text = "MY EASY VIEW SETTING"
             buttonClickListener = View.OnClickListener { text = "Clicked!" }
         }
     }

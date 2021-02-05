@@ -15,6 +15,19 @@ class CustomViewFine @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defAttrStyle) {
     init {
         LayoutInflater.from(context).inflate(R.layout.view_easy, this, true)
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.CustomViewFine,
+            0,
+            0,
+        ).apply {
+
+            try {
+                text = getString(R.styleable.CustomViewFine_settingsText)
+            } finally {
+                recycle()
+            }
+        }
     }
 
     var text: String? = null
